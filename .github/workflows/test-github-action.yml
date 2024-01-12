@@ -1,0 +1,24 @@
+name: 'github-test-action'
+run-name: 'GitHub Test Action'
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+        branches:
+            - main
+        paths:
+            - 'force-app/**'
+jobs:
+    github-test-action-example:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+        - name: A simple bash test
+          shell: bash
+          run: |
+            echo A simple bash test for GitHub Actions.
+            echo If you are reading this, congratulations, all is working.
+            echo Otherwise, read the Readme file.
+
+
